@@ -2,12 +2,12 @@ import requests
 from twilio.rest import Client
 
 OWM_ENDPOINT = "https://api.openweathermap.org/data/2.5/forecast"
-API_KEY = ""
-MY_LAT = -35.280937
-MY_LNG = 149.130005
+API_KEY = "" ## Your API key with openweather map
+MY_LAT = -35.280937 ## Replace with your Latitude
+MY_LNG = 149.130005 ## Replace with your Longitude
 
-account_sid = ""
-auth_token = ""
+account_sid = "" ## Twilio Messaging account ID
+auth_token = "" ## Twilio API Key
 
 def weatherForecast():
     parameters = {
@@ -35,9 +35,9 @@ def weatherForecast():
 
         message = client.messages \
                 .create(
-                     from_='+',
+                     from_='+', ## Your Twilio Number
                      body="It is going to rain! I would bring an umbrella",
-                     to='+61437432481'
+                     to='+' ## Your verified number
                  )
 
         print(message.sid)
@@ -45,9 +45,9 @@ def weatherForecast():
         client = Client(account_sid, auth_token)
 
         message = client.messages.create(
-                     from_='+',
+                     from_='+', ## Your Twilio Number
                      body="No rain is forecast, you are good to go!",
-                     to='+'
+                     to='+' ## Your verified number
                  )
 
         print(message.sid)
